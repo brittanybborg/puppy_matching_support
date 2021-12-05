@@ -1,60 +1,34 @@
-<!-- Form litter start -->
 <%= form_with(model: @litter, local: true) do |f| %>
-<!-- Form litter end -->
 
-  <!-- Label and input for litter_name start -->
   <div class="form-group">
     <%= f.label :litter_name %>
 
-    <!-- Input for litter_name start -->
     <%= f.text_field :litter_name, class: "form-control" %>
-    <!-- Input for litter_name end -->
   </div>
-  <!-- Label and input for litter_name end -->
 
-  <!-- Label and input for sire_id start -->
   <div class="form-group">
     <%= f.label :sire_id %>
 
-    <!-- Input for sire_id start -->
     <%= f.collection_select :sire_id, SireProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for sire_id end -->
   </div>
-  <!-- Label and input for sire_id end -->
 
-  <!-- Label and input for bitch_id start -->
-  <!-- Input for bitch_id start -->
   <%= f.hidden_field :bitch_id, value: @bitch_profile.id %>
-  <!-- Input for bitch_id end -->
-  <!-- Label and input for bitch_id end -->
 
-  <!-- Label and input for puppy_count start -->
   <div class="form-group">
     <%= f.label :puppy_count %>
 
-    <!-- Input for puppy_count start -->
     <%= f.text_field :puppy_count, class: "form-control" %>
-    <!-- Input for puppy_count end -->
   </div>
-  <!-- Label and input for puppy_count end -->
 
-  <!-- Label and input for due_date start -->
   <div class="form-group">
     <%= f.label :due_date %>
-    <!-- Input for due_date start -->
     <%= f.datetime_select :due_date, class: "form-control" %>
-    <!-- Input for due_date end -->
   </div>
-  <!-- Label and input for due_date end -->
 
-  <!-- Label and input for puppy_release_date start -->
   <div class="form-group">
     <%= f.label :puppy_release_date %>
-    <!-- Input for puppy_release_date start -->
     <%= f.datetime_select :puppy_release_date, class: "form-control" %>
-    <!-- Input for puppy_release_date end -->
   </div>
-  <!-- Label and input for puppy_release_date end -->
 
   <%= f.submit "Create litter", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

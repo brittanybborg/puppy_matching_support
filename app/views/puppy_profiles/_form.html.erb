@@ -1,7 +1,6 @@
 <% was_validated = puppy_profile.errors.any? %>
 
 <%= form_with(model: puppy_profile, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = puppy_profile.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for litter_id start -->
   <div class="form-group">
     <% litter_class = "form-control" %>
     <% litter_was_invalid = puppy_profile.errors.include?(:litter) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :litter_id %>
-    <!-- Input for litter_id start -->
     <%= f.collection_select :litter_id, Litter.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for litter_id end -->
     <% if litter_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:litter).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for litter_id end -->
-  <!-- Label and input for alpha_true start -->
   <div class="form-check">
     <% alpha_true_class = "form-check-input" %>
     <% alpha_true_was_invalid = puppy_profile.errors.include?(:alpha_true) %>
@@ -77,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for alpha_true end -->
-  <!-- Label and input for runt_true start -->
   <div class="form-check">
     <% runt_true_class = "form-check-input" %>
     <% runt_true_was_invalid = puppy_profile.errors.include?(:runt_true) %>
@@ -102,8 +91,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for runt_true end -->
-  <!-- Label and input for activity_level start -->
   <div class="form-group">
     <% activity_level_class = "form-control" %>
     <% activity_level_was_invalid = puppy_profile.errors.include?(:activity_level) %>
@@ -117,9 +104,7 @@
     <% end %>
 
     <%= f.label :activity_level %>
-    <!-- Input for activity_level start -->
     <%= f.select :activity_level, options_for_select(PuppyProfile.activity_levels.keys), {}, class: "form-control" %>
-    <!-- Input for activity_level end -->
     <% if activity_level_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:activity_level).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -128,8 +113,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for activity_level end -->
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = puppy_profile.errors.include?(:photo) %>
@@ -143,9 +126,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
     <% if photo_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -154,8 +135,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photo end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = puppy_profile.errors.include?(:description) %>
@@ -169,9 +148,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -180,6 +157,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

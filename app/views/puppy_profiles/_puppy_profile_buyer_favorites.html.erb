@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @puppy_profile.buyer_favorites.each do |buyer_favorite| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to buyer_favorite, buyer_favorite %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to buyer_favorite, method: :delete, data: { confirm: "Do you really want to delete this buyer_favorite" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="puppy_profile_buyer_favorites_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "puppy_profiles/puppy_profile_buyer_favorites_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

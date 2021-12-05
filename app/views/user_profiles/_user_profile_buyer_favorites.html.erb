@@ -10,18 +10,14 @@
   <ul class="list-group list-group-flush">
     <% @user_profile.buyer_favorites.each do |buyer_favorite| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to buyer_favorite, buyer_favorite %>
-        <!-- Show link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_profile_buyer_favorites_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "user_profiles/user_profile_buyer_favorites_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

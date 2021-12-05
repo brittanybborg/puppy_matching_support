@@ -6,31 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= bitch_profile.name %></dd>
-      <!-- Display name end -->
 
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @bitch_profile.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= bitch_profile.description %></dd>
-      <!-- Display description end -->
 
       <dt>Previous litters</dt>
-      <!-- Display previous_litters start -->
       <dd><%= bitch_profile.previous_litters %></dd>
-      <!-- Display previous_litters end -->
 
       <dt>Age</dt>
-      <!-- Display age start -->
       <dd><%= bitch_profile.age %></dd>
-      <!-- Display age end -->
 
     </dl>
 
@@ -39,21 +29,17 @@
         <%= link_to_show_or_back bitch_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link bitch_profile start -->
       <div class="col">
         <%= link_to edit_bitch_profile_url(bitch_profile), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link bitch_profile end -->
 
-      <!-- Delete link bitch_profile start -->
       <div class="col">
         <%= link_to bitch_profile, method: :delete, data: { confirm: "Do you really want to delete this bitch_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link bitch_profile end -->
     </div>
   </div>
 

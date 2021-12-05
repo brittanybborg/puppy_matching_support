@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @bitch_profile.litters.each do |litter| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to litter, litter %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to litter, method: :delete, data: { confirm: "Do you really want to delete this litter" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="bitch_profile_litters_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "bitch_profiles/bitch_profile_litters_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

@@ -6,38 +6,26 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= user_profile.username %></dd>
-      <!-- Display username end -->
 
       <dt>Breeder true</dt>
-      <!-- Display breeder_true start -->
       <dd><%= user_profile.breeder_true %></dd>
-      <!-- Display breeder_true end -->
 
       <dt>Home activity level</dt>
-      <!-- Display home_activity_level start -->
       <dd><%= user_profile.home_activity_level %></dd>
-      <!-- Display home_activity_level end -->
 
       <dt>Children present</dt>
-      <!-- Display children_present start -->
       <dd><%= user_profile.children_present %></dd>
-      <!-- Display children_present end -->
 
       <dt>Cat present</dt>
-      <!-- Display cat_present start -->
       <dd><%= user_profile.cat_present %></dd>
-      <!-- Display cat_present end -->
 
       <dt>Home location</dt>
-      <!-- Display home_location start -->
       <dd>
         <div>
           <%= render partial: "user_profiles/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display home_location end -->
 
     </dl>
 
@@ -46,21 +34,17 @@
         <%= link_to_show_or_back user_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user_profile start -->
       <div class="col">
         <%= link_to edit_user_profile_url(user_profile), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user_profile end -->
 
-      <!-- Delete link user_profile start -->
       <div class="col">
         <%= link_to user_profile, method: :delete, data: { confirm: "Do you really want to delete this user_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user_profile end -->
     </div>
   </div>
 

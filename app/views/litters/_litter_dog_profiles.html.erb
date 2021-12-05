@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @litter.dog_profiles.each do |puppy_profile| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to puppy_profile, puppy_profile %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to puppy_profile, method: :delete, data: { confirm: "Do you really want to delete this puppy_profile" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="litter_dog_profiles_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "litters/litter_dog_profiles_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

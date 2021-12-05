@@ -1,7 +1,6 @@
 <% was_validated = litter.errors.any? %>
 
 <%= form_with(model: litter, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for litter_name start -->
   <div class="form-group">
     <% litter_name_class = "form-control" %>
     <% litter_name_was_invalid = litter.errors.include?(:litter_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :litter_name %>
-    <!-- Input for litter_name start -->
     <%= f.text_field :litter_name, class: litter_name_class, placeholder: "Enter litter name" %>
-    <!-- Input for litter_name end -->
     <% if litter_name_was_invalid %>
       <% litter.errors.full_messages_for(:litter_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for litter_name end -->
-  <!-- Label and input for sire_id start -->
   <div class="form-group">
     <% sire_class = "form-control" %>
     <% sire_was_invalid = litter.errors.include?(:sire) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :sire_id %>
-    <!-- Input for sire_id start -->
     <%= f.collection_select :sire_id, SireProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for sire_id end -->
     <% if sire_was_invalid %>
       <% litter.errors.full_messages_for(:sire).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for sire_id end -->
-  <!-- Label and input for bitch_id start -->
   <div class="form-group">
     <% bitch_class = "form-control" %>
     <% bitch_was_invalid = litter.errors.include?(:bitch) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :bitch_id %>
-    <!-- Input for bitch_id start -->
     <%= f.collection_select :bitch_id, BitchProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for bitch_id end -->
     <% if bitch_was_invalid %>
       <% litter.errors.full_messages_for(:bitch).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for bitch_id end -->
-  <!-- Label and input for puppy_count start -->
   <div class="form-group">
     <% puppy_count_class = "form-control" %>
     <% puppy_count_was_invalid = litter.errors.include?(:puppy_count) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :puppy_count %>
-    <!-- Input for puppy_count start -->
     <%= f.number_field :puppy_count, class: puppy_count_class, placeholder: "Enter puppy count" %>
-    <!-- Input for puppy_count end -->
     <% if puppy_count_was_invalid %>
       <% litter.errors.full_messages_for(:puppy_count).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for puppy_count end -->
-  <!-- Label and input for due_date start -->
   <div class="form-group">
     <% due_date_class = "form-control" %>
     <% due_date_was_invalid = litter.errors.include?(:due_date) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :due_date %>
-    <!-- Input for due_date start -->
     <%= f.datetime_select :due_date, class: due_date_class, placeholder: "Enter due date" %>
-    <!-- Input for due_date end -->
     <% if due_date_was_invalid %>
       <% litter.errors.full_messages_for(:due_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for due_date end -->
-  <!-- Label and input for puppy_release_date start -->
   <div class="form-group">
     <% puppy_release_date_class = "form-control" %>
     <% puppy_release_date_was_invalid = litter.errors.include?(:puppy_release_date) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :puppy_release_date %>
-    <!-- Input for puppy_release_date start -->
     <%= f.datetime_select :puppy_release_date, class: puppy_release_date_class, placeholder: "Enter puppy release date" %>
-    <!-- Input for puppy_release_date end -->
     <% if puppy_release_date_was_invalid %>
       <% litter.errors.full_messages_for(:puppy_release_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for puppy_release_date end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

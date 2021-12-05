@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @bitch_profile.dog_profiles.each do |puppy_profile| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/puppy_profiles/<%= puppy_profile.id %>">
           <%= puppy_profile %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

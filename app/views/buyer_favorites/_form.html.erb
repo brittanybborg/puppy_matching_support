@@ -1,7 +1,6 @@
 <% was_validated = buyer_favorite.errors.any? %>
 
 <%= form_with(model: buyer_favorite, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = buyer_favorite.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, UserProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% buyer_favorite.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for puppy_id start -->
   <div class="form-group">
     <% puppy_class = "form-control" %>
     <% puppy_was_invalid = buyer_favorite.errors.include?(:puppy) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :puppy_id %>
-    <!-- Input for puppy_id start -->
     <%= f.collection_select :puppy_id, PuppyProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for puppy_id end -->
     <% if puppy_was_invalid %>
       <% buyer_favorite.errors.full_messages_for(:puppy).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for puppy_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

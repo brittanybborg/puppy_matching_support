@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { novalidate: true, class: "mb-3" } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <div class="form-group">
@@ -91,7 +89,6 @@
           </div>
 
 
-          <!-- Devise Input for username start -->
           <div class="form-group">
             <% username_was_invalid = resource.errors.include?(:username) %>
 
@@ -117,9 +114,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for username end -->
 
-          <!-- Devise Input for breeder_true start -->
           <div class="form-group">
             <% breeder_true_was_invalid = resource.errors.include?(:breeder_true) %>
 
@@ -145,9 +140,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for breeder_true end -->
 
-          <!-- Devise Input for home_activity_level start -->
           <div class="form-group">
             <% home_activity_level_was_invalid = resource.errors.include?(:home_activity_level) %>
 
@@ -173,9 +166,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for home_activity_level end -->
 
-          <!-- Devise Input for children_present start -->
           <div class="form-group">
             <% children_present_was_invalid = resource.errors.include?(:children_present) %>
 
@@ -201,9 +192,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for children_present end -->
 
-          <!-- Devise Input for cat_present start -->
           <div class="form-group">
             <% cat_present_was_invalid = resource.errors.include?(:cat_present) %>
 
@@ -229,9 +218,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for cat_present end -->
 
-          <!-- Devise Input for home_location start -->
           <div class="form-group">
             <% home_location_was_invalid = resource.errors.include?(:home_location) %>
 
@@ -257,7 +244,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for home_location end -->
           <%= f.button class: "btn btn-outline-primary btn-block" %>
 
           <hr>

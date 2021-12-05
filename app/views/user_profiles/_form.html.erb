@@ -1,7 +1,6 @@
 <% was_validated = user_profile.errors.any? %>
 
 <%= form_with(model: user_profile, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for username start -->
   <div class="form-group">
     <% username_class = "form-control" %>
     <% username_was_invalid = user_profile.errors.include?(:username) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :username %>
-    <!-- Input for username start -->
     <%= f.text_field :username, class: username_class, placeholder: "Enter username" %>
-    <!-- Input for username end -->
     <% if username_was_invalid %>
       <% user_profile.errors.full_messages_for(:username).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for username end -->
-  <!-- Label and input for breeder_true start -->
   <div class="form-check">
     <% breeder_true_class = "form-check-input" %>
     <% breeder_true_was_invalid = user_profile.errors.include?(:breeder_true) %>
@@ -51,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for breeder_true end -->
-  <!-- Label and input for home_activity_level start -->
   <div class="form-group">
     <% home_activity_level_class = "form-control" %>
     <% home_activity_level_was_invalid = user_profile.errors.include?(:home_activity_level) %>
@@ -66,9 +59,7 @@
     <% end %>
 
     <%= f.label :home_activity_level %>
-    <!-- Input for home_activity_level start -->
     <%= f.select :home_activity_level, options_for_select(UserProfile.home_activity_levels.keys), {}, class: "form-control" %>
-    <!-- Input for home_activity_level end -->
     <% if home_activity_level_was_invalid %>
       <% user_profile.errors.full_messages_for(:home_activity_level).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -77,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_activity_level end -->
-  <!-- Label and input for children_present start -->
   <div class="form-check">
     <% children_present_class = "form-check-input" %>
     <% children_present_was_invalid = user_profile.errors.include?(:children_present) %>
@@ -102,8 +91,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for children_present end -->
-  <!-- Label and input for cat_present start -->
   <div class="form-check">
     <% cat_present_class = "form-check-input" %>
     <% cat_present_was_invalid = user_profile.errors.include?(:cat_present) %>
@@ -127,8 +114,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cat_present end -->
-  <!-- Label and input for home_location start -->
   <div class="form-group">
     <% home_location_class = "form-control" %>
     <% home_location_was_invalid = user_profile.errors.include?(:home_location) %>
@@ -142,9 +127,7 @@
     <% end %>
 
     <%= f.label :home_location %>
-    <!-- Input for home_location start -->
     <%= f.text_field :home_location, class: home_location_class, placeholder: "Enter home location" %>
-    <!-- Input for home_location end -->
     <% if home_location_was_invalid %>
       <% user_profile.errors.full_messages_for(:home_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -153,6 +136,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_location end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
