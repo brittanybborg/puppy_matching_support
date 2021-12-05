@@ -4,24 +4,19 @@ class BreederReviewsController < ApplicationController
 
   before_action :set_breeder_review, only: %i[show edit update destroy]
 
-  # GET /breeder_reviews
   def index
     @q = BreederReview.ransack(params[:q])
     @breeder_reviews = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
   end
 
-  # GET /breeder_reviews/1
   def show; end
 
-  # GET /breeder_reviews/new
   def new
     @breeder_review = BreederReview.new
   end
 
-  # GET /breeder_reviews/1/edit
   def edit; end
 
-  # POST /breeder_reviews
   def create
     @breeder_review = BreederReview.new(breeder_review_params)
 
@@ -37,7 +32,6 @@ class BreederReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /breeder_reviews/1
   def update
     if @breeder_review.update(breeder_review_params)
       redirect_to @breeder_review,
@@ -47,7 +41,6 @@ class BreederReviewsController < ApplicationController
     end
   end
 
-  # DELETE /breeder_reviews/1
   def destroy
     @breeder_review.destroy
     message = "BreederReview was successfully deleted."
@@ -68,12 +61,10 @@ class BreederReviewsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_breeder_review
     @breeder_review = BreederReview.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def breeder_review_params
     params.require(:breeder_review).permit(:description, :buyer_id)
   end

@@ -1,27 +1,22 @@
 class SireProfilesController < ApplicationController
   before_action :set_sire_profile, only: %i[show edit update destroy]
 
-  # GET /sire_profiles
   def index
     @q = SireProfile.ransack(params[:q])
     @sire_profiles = @q.result(distinct: true).includes(:litters,
                                                         :dog_profiles).page(params[:page]).per(10)
   end
 
-  # GET /sire_profiles/1
   def show
     @litter = Litter.new
   end
 
-  # GET /sire_profiles/new
   def new
     @sire_profile = SireProfile.new
   end
 
-  # GET /sire_profiles/1/edit
   def edit; end
 
-  # POST /sire_profiles
   def create
     @sire_profile = SireProfile.new(sire_profile_params)
 
@@ -33,7 +28,6 @@ class SireProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sire_profiles/1
   def update
     if @sire_profile.update(sire_profile_params)
       redirect_to @sire_profile,
@@ -43,7 +37,6 @@ class SireProfilesController < ApplicationController
     end
   end
 
-  # DELETE /sire_profiles/1
   def destroy
     @sire_profile.destroy
     redirect_to sire_profiles_url,
@@ -52,12 +45,10 @@ class SireProfilesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_sire_profile
     @sire_profile = SireProfile.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def sire_profile_params
     params.require(:sire_profile).permit(:name, :photo, :description,
                                          :previous_litters, :age)
