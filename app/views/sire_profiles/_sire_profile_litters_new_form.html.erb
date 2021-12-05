@@ -23,7 +23,7 @@
     <%= f.label :bitch_id %>
 
     <!-- Input for bitch_id start -->
-    <%= f.text_field :bitch_id, class: "form-control" %>
+    <%= f.collection_select :bitch_id, BitchProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for bitch_id end -->
   </div>
   <!-- Label and input for bitch_id end -->

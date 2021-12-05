@@ -68,7 +68,7 @@
 
     <%= f.label :bitch_id %>
     <!-- Input for bitch_id start -->
-    <%= f.number_field :bitch_id, class: bitch_class, placeholder: "Enter bitch" %>
+    <%= f.collection_select :bitch_id, BitchProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for bitch_id end -->
     <% if bitch_was_invalid %>
       <% litter.errors.full_messages_for(:bitch).each do |message| %>
