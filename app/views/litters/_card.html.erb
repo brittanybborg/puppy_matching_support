@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Litter #<%= litter.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Litter name</dt>
+      <!-- Display litter_name start -->
+      <dd><%= litter.litter_name %></dd>
+      <!-- Display litter_name end -->
+
+      <dt>Sire</dt>
+      <!-- Display sire_id start -->
+      <dd><%= litter.sire_id %></dd>
+      <!-- Display sire_id end -->
+
+      <dt>Bitch</dt>
+      <!-- Display bitch_id start -->
+      <dd><%= litter.bitch_id %></dd>
+      <!-- Display bitch_id end -->
+
+      <dt>Puppy count</dt>
+      <!-- Display puppy_count start -->
+      <dd><%= litter.puppy_count %></dd>
+      <!-- Display puppy_count end -->
+
+      <dt>Due date</dt>
+      <!-- Display due_date start -->
+      <dd><%= litter.due_date %></dd>
+      <!-- Display due_date end -->
+
+      <dt>Puppy release date</dt>
+      <!-- Display puppy_release_date start -->
+      <dd><%= litter.puppy_release_date %></dd>
+      <!-- Display puppy_release_date end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back litter, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link litter start -->
+      <div class="col">
+        <%= link_to edit_litter_url(litter), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link litter end -->
+
+      <!-- Delete link litter start -->
+      <div class="col">
+        <%= link_to litter, method: :delete, data: { confirm: "Do you really want to delete this litter?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link litter end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(litter.updated_at) %> ago
+  </div>
+</div>
