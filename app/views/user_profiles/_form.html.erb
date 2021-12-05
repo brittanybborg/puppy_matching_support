@@ -67,7 +67,7 @@
 
     <%= f.label :home_activity_level %>
     <!-- Input for home_activity_level start -->
-    <%= f.number_field :home_activity_level, class: home_activity_level_class, placeholder: "Enter home activity level" %>
+    <%= f.select :home_activity_level, options_for_select(UserProfile.home_activity_levels.keys), {}, class: "form-control" %>
     <!-- Input for home_activity_level end -->
     <% if home_activity_level_was_invalid %>
       <% user_profile.errors.full_messages_for(:home_activity_level).each do |message| %>
