@@ -11,6 +11,9 @@ class LitterResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :bitch,
+             resource: BitchProfileResource
+
   belongs_to :sire,
              resource: SireProfileResource
 
