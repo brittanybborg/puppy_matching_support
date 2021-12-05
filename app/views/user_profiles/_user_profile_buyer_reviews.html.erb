@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Buyer Reviews
+
+    <a data-toggle="collapse" href="#user_profile_buyer_reviews_new_form">
+      Add breeder review
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user_profile.buyer_reviews.each do |breeder_review| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to breeder_review, breeder_review %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_profile_buyer_reviews_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

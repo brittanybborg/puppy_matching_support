@@ -42,8 +42,14 @@ class BuyerFavoritesController < ApplicationController
   # DELETE /buyer_favorites/1
   def destroy
     @buyer_favorite.destroy
-    redirect_to buyer_favorites_url, notice: 'Buyer favorite was successfully destroyed.'
+    message = "BuyerFavorite was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to buyer_favorites_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

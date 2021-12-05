@@ -42,8 +42,14 @@ class BreederReviewsController < ApplicationController
   # DELETE /breeder_reviews/1
   def destroy
     @breeder_review.destroy
-    redirect_to breeder_reviews_url, notice: 'Breeder review was successfully destroyed.'
+    message = "BreederReview was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to breeder_reviews_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
