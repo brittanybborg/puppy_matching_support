@@ -4,6 +4,8 @@ RSpec.describe UserProfile, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:buyer_favorites) }
+
     it { should have_many(:buyer_reviews) }
 
     end
