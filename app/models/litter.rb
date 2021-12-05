@@ -5,6 +5,8 @@ class Litter < ApplicationRecord
 
   # Validations
 
+  validates :litter_name, :uniqueness => true
+
   validates :litter_name, :presence => true
 
   validates :puppy_count, :presence => true
