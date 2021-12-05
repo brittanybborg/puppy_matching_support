@@ -42,7 +42,7 @@
 
     <%= f.label :sire_id %>
     <!-- Input for sire_id start -->
-    <%= f.number_field :sire_id, class: sire_class, placeholder: "Enter sire" %>
+    <%= f.collection_select :sire_id, SireProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for sire_id end -->
     <% if sire_was_invalid %>
       <% litter.errors.full_messages_for(:sire).each do |message| %>
