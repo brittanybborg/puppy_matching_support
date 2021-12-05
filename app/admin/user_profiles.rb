@@ -1,5 +1,7 @@
 ActiveAdmin.register UserProfile do
 
+ permit_params :email, :password, :username, :breeder_true, :home_activity_level, :children_present, :cat_present, :home_location
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
