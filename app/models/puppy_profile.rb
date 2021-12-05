@@ -12,6 +12,10 @@ class PuppyProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :bitch,
+             :through => :litter,
+             :source => :bitch
+
   # Validations
 
   validates :name, :uniqueness => true

@@ -10,6 +10,8 @@ RSpec.describe BitchProfile, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:dog_profiles) }
+
     end
 
     describe "Validations" do
