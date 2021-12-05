@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Puppy Profile #<%= puppy_profile.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= puppy_profile.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Litter</dt>
+      <!-- Display litter_id start -->
+      <dd><%= puppy_profile.litter_id %></dd>
+      <!-- Display litter_id end -->
+
+      <dt>Alpha true</dt>
+      <!-- Display alpha_true start -->
+      <dd><%= puppy_profile.alpha_true %></dd>
+      <!-- Display alpha_true end -->
+
+      <dt>Runt true</dt>
+      <!-- Display runt_true start -->
+      <dd><%= puppy_profile.runt_true %></dd>
+      <!-- Display runt_true end -->
+
+      <dt>Activity level</dt>
+      <!-- Display activity_level start -->
+      <dd><%= puppy_profile.activity_level %></dd>
+      <!-- Display activity_level end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= puppy_profile.photo %></dd>
+      <!-- Display photo end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= puppy_profile.description %></dd>
+      <!-- Display description end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back puppy_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link puppy_profile start -->
+      <div class="col">
+        <%= link_to edit_puppy_profile_url(puppy_profile), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link puppy_profile end -->
+
+      <!-- Delete link puppy_profile start -->
+      <div class="col">
+        <%= link_to puppy_profile, method: :delete, data: { confirm: "Do you really want to delete this puppy_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link puppy_profile end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(puppy_profile.updated_at) %> ago
+  </div>
+</div>
