@@ -1,4 +1,6 @@
 class BreederReviewsController < ApplicationController
+  before_action :current_user_profile_must_be_breeder_review_user, only: [:edit, :update, :destroy] 
+
   before_action :set_breeder_review, only: [:show, :edit, :update, :destroy]
 
   # GET /breeder_reviews
@@ -57,6 +59,14 @@ class BreederReviewsController < ApplicationController
 
 
   private
+
+  def current_user_profile_must_be_breeder_review_user
+    set_breeder_review
+    unless current_user_profile == @breeder_review.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_breeder_review
       @breeder_review = BreederReview.find(params[:id])

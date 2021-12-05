@@ -24,16 +24,20 @@
 
       <!-- Edit link breeder_review start -->
       <div class="col">
-        <%= link_to edit_breeder_review_url(breeder_review), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user_profile == @breeder_review.user %>
+          <%= link_to edit_breeder_review_url(breeder_review), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link breeder_review end -->
 
       <!-- Delete link breeder_review start -->
       <div class="col">
-        <%= link_to breeder_review, method: :delete, data: { confirm: "Do you really want to delete this breeder_review?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user_profile == @breeder_review.user %>
+          <%= link_to breeder_review, method: :delete, data: { confirm: "Do you really want to delete this breeder_review?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link breeder_review end -->
