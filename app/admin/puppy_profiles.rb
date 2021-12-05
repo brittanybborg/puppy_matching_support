@@ -1,5 +1,7 @@
 ActiveAdmin.register PuppyProfile do
 
+ permit_params :name, :litter_id, :alpha_true, :runt_true, :activity_level, :photo, :description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
