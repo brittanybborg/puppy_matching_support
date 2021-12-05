@@ -11,6 +11,9 @@ class LitterResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dog_profiles,
+             resource: PuppyProfileResource
+
   # Indirect associations
 
 end

@@ -12,6 +12,8 @@ class PuppyProfileResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :litter
+
   has_many   :buyer_favorites,
              foreign_key: :puppy_id
 
