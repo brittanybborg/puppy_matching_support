@@ -42,7 +42,7 @@
 
     <%= f.label :litter_id %>
     <!-- Input for litter_id start -->
-    <%= f.number_field :litter_id, class: litter_class, placeholder: "Enter litter" %>
+    <%= f.collection_select :litter_id, Litter.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for litter_id end -->
     <% if litter_was_invalid %>
       <% puppy_profile.errors.full_messages_for(:litter).each do |message| %>
