@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "puppy_profiles#index"
   resources :bitch_profiles
   resources :sire_profiles
   resources :buyer_favorites
