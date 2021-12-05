@@ -36,17 +36,7 @@ class UserProfile < ApplicationRecord
 
   # Validations
 
-  validates :breeder_true, presence: true
-
-  validates :cat_present, presence: true
-
-  validates :children_present, presence: true
-
   validates :home_activity_level, presence: true
-
-  validates :home_location, uniqueness: true
-
-  validates :home_location, presence: true
 
   validates :username, uniqueness: true
 
