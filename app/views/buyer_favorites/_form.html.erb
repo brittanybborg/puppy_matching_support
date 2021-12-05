@@ -42,7 +42,7 @@
 
     <%= f.label :puppy_id %>
     <!-- Input for puppy_id start -->
-    <%= f.number_field :puppy_id, class: puppy_class, placeholder: "Enter puppy" %>
+    <%= f.collection_select :puppy_id, PuppyProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for puppy_id end -->
     <% if puppy_was_invalid %>
       <% buyer_favorite.errors.full_messages_for(:puppy).each do |message| %>
