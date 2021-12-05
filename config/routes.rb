@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :breeder_reviews
   resources :litters
   resources :puppy_profiles
   devise_for :user_profiles
