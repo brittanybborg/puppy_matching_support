@@ -7,6 +7,10 @@ class BreederReviewResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user,
+             resource: UserProfileResource,
+             foreign_key: :buyer_id
+
   # Indirect associations
 
 end

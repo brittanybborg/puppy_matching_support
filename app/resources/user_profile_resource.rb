@@ -13,6 +13,10 @@ class UserProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :buyer_reviews,
+             resource: BreederReviewResource,
+             foreign_key: :buyer_id
+
   # Indirect associations
 
 end
