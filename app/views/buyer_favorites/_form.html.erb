@@ -1,0 +1,57 @@
+<% was_validated = buyer_favorite.errors.any? %>
+
+<%= form_with(model: buyer_favorite, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = buyer_favorite.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% buyer_favorite.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for puppy_id start -->
+  <div class="form-group">
+    <% puppy_class = "form-control" %>
+    <% puppy_was_invalid = buyer_favorite.errors.include?(:puppy) %>
+
+    <% if was_validated %>
+      <% if puppy_was_invalid %>
+        <% puppy_class << " is-invalid" %>
+      <% else %>
+        <% puppy_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :puppy_id %>
+    <!-- Input for puppy_id start -->
+    <%= f.number_field :puppy_id, class: puppy_class, placeholder: "Enter puppy" %>
+    <!-- Input for puppy_id end -->
+    <% if puppy_was_invalid %>
+      <% buyer_favorite.errors.full_messages_for(:puppy).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for puppy_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
