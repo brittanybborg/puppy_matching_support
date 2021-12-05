@@ -8,6 +8,7 @@ class BitchProfilesController < ApplicationController
 
   # GET /bitch_profiles/1
   def show
+    @litter = Litter.new
   end
 
   # GET /bitch_profiles/new

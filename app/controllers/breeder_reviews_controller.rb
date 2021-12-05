@@ -24,7 +24,12 @@ class BreederReviewsController < ApplicationController
     @breeder_review = BreederReview.new(breeder_review_params)
 
     if @breeder_review.save
-      redirect_to @breeder_review, notice: 'Breeder review was successfully created.'
+      message = 'BreederReview was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @breeder_review, notice: message
+      end
     else
       render :new
     end

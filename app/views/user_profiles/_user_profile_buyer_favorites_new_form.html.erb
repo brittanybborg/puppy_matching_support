@@ -1,0 +1,22 @@
+<!-- Form buyer_favorite start -->
+<%= form_with(model: @buyer_favorite, local: true) do |f| %>
+<!-- Form buyer_favorite end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user_profile.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for puppy_id start -->
+  <div class="form-group">
+    <%= f.label :puppy_id %>
+
+    <!-- Input for puppy_id start -->
+    <%= f.text_field :puppy_id, class: "form-control" %>
+    <!-- Input for puppy_id end -->
+  </div>
+  <!-- Label and input for puppy_id end -->
+
+  <%= f.submit "Create buyer favorite", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

@@ -8,6 +8,7 @@ class PuppyProfilesController < ApplicationController
 
   # GET /puppy_profiles/1
   def show
+    @buyer_favorite = BuyerFavorite.new
   end
 
   # GET /puppy_profiles/new
@@ -24,7 +25,12 @@ class PuppyProfilesController < ApplicationController
     @puppy_profile = PuppyProfile.new(puppy_profile_params)
 
     if @puppy_profile.save
-      redirect_to @puppy_profile, notice: 'Puppy profile was successfully created.'
+      message = 'PuppyProfile was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @puppy_profile, notice: message
+      end
     else
       render :new
     end

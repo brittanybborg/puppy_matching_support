@@ -24,7 +24,12 @@ class BuyerFavoritesController < ApplicationController
     @buyer_favorite = BuyerFavorite.new(buyer_favorite_params)
 
     if @buyer_favorite.save
-      redirect_to @buyer_favorite, notice: 'Buyer favorite was successfully created.'
+      message = 'BuyerFavorite was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @buyer_favorite, notice: message
+      end
     else
       render :new
     end

@@ -8,6 +8,7 @@ class LittersController < ApplicationController
 
   # GET /litters/1
   def show
+    @puppy_profile = PuppyProfile.new
   end
 
   # GET /litters/new
@@ -24,7 +25,12 @@ class LittersController < ApplicationController
     @litter = Litter.new(litter_params)
 
     if @litter.save
-      redirect_to @litter, notice: 'Litter was successfully created.'
+      message = 'Litter was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @litter, notice: message
+      end
     else
       render :new
     end

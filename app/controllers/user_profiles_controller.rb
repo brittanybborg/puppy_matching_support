@@ -8,6 +8,8 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1
   def show
+    @buyer_favorite = BuyerFavorite.new
+    @breeder_review = BreederReview.new
   end
 
   # GET /user_profiles/new

@@ -1,0 +1,70 @@
+<!-- Form puppy_profile start -->
+<%= form_with(model: @puppy_profile, local: true) do |f| %>
+<!-- Form puppy_profile end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for litter_id start -->
+  <!-- Input for litter_id start -->
+  <%= f.hidden_field :litter_id, value: @litter.id %>
+  <!-- Input for litter_id end -->
+  <!-- Label and input for litter_id end -->
+
+  <!-- Label and input for alpha_true start -->
+  <div class="form-check">
+    <!-- Input for alpha_true start -->
+    <%= f.check_box :alpha_true, class: "form-check-input" %>
+    <!-- Input for alpha_true end -->
+    <%= f.label :alpha_true, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for alpha_true end -->
+
+  <!-- Label and input for runt_true start -->
+  <div class="form-check">
+    <!-- Input for runt_true start -->
+    <%= f.check_box :runt_true, class: "form-check-input" %>
+    <!-- Input for runt_true end -->
+    <%= f.label :runt_true, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for runt_true end -->
+
+  <!-- Label and input for activity_level start -->
+  <div class="form-group">
+    <%= f.label :activity_level %>
+
+    <!-- Input for activity_level start -->
+    <%= f.text_field :activity_level, class: "form-control" %>
+    <!-- Input for activity_level end -->
+  </div>
+  <!-- Label and input for activity_level end -->
+
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <%= f.label :photo %>
+
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: "form-control" %>
+    <!-- Input for photo end -->
+  </div>
+  <!-- Label and input for photo end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+
+    <!-- Input for description start -->
+    <%= f.text_field :description, class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <%= f.submit "Create puppy profile", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
