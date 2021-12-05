@@ -32,7 +32,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= puppy_profile.photo %></dd>
+      <dd>
+        <%= cl_image_tag @puppy_profile.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
       <dt>Description</dt>

@@ -12,7 +12,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= bitch_profile.photo %></dd>
+      <dd>
+        <%= cl_image_tag @bitch_profile.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
       <dt>Description</dt>
