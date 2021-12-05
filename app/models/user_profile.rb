@@ -21,7 +21,9 @@ class UserProfile < ApplicationRecord
   end
   enum home_activity_level: {"low"=>0, "medium"=>1, "high"=>2} 
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :buyer_favorites,
              :foreign_key => "user_id",
