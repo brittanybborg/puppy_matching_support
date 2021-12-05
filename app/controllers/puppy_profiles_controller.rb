@@ -3,7 +3,8 @@ class PuppyProfilesController < ApplicationController
 
   # GET /puppy_profiles
   def index
-    @puppy_profiles = PuppyProfile.page(params[:page]).per(10)
+    @q = PuppyProfile.ransack(params[:q])
+    @puppy_profiles = @q.result(:distinct => true).includes(:buyer_favorites, :litter, :bitch, :sire).page(params[:page]).per(10)
   end
 
   # GET /puppy_profiles/1

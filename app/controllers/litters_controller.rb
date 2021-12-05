@@ -3,7 +3,8 @@ class LittersController < ApplicationController
 
   # GET /litters
   def index
-    @litters = Litter.page(params[:page]).per(10)
+    @q = Litter.ransack(params[:q])
+    @litters = @q.result(:distinct => true).includes(:dog_profiles, :sire, :bitch).page(params[:page]).per(10)
   end
 
   # GET /litters/1

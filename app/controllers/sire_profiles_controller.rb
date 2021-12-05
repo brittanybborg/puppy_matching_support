@@ -3,7 +3,8 @@ class SireProfilesController < ApplicationController
 
   # GET /sire_profiles
   def index
-    @sire_profiles = SireProfile.page(params[:page]).per(10)
+    @q = SireProfile.ransack(params[:q])
+    @sire_profiles = @q.result(:distinct => true).includes(:litters, :dog_profiles).page(params[:page]).per(10)
   end
 
   # GET /sire_profiles/1

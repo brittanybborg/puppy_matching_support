@@ -5,7 +5,8 @@ class BreederReviewsController < ApplicationController
 
   # GET /breeder_reviews
   def index
-    @breeder_reviews = BreederReview.page(params[:page]).per(10)
+    @q = BreederReview.ransack(params[:q])
+    @breeder_reviews = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
   end
 
   # GET /breeder_reviews/1
