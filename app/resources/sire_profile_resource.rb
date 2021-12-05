@@ -15,4 +15,12 @@ class SireProfileResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :dog_profiles, resource: PuppyProfileResource do
+    assign_each do |sire_profile, puppy_profiles|
+      puppy_profiles.select do |p|
+        p.id.in?(sire_profile.dog_profiles.map(&:id))
+      end
+    end
+  end
+
 end
