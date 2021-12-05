@@ -7,6 +7,8 @@ class UserProfile < ApplicationRecord
 
   # Validations
 
+  validates :cat_present, :presence => true
+
   validates :children_present, :presence => true
 
   validates :home_activity_level, :presence => true
