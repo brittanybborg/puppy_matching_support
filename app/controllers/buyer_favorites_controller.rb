@@ -3,7 +3,7 @@ class BuyerFavoritesController < ApplicationController
 
   # GET /buyer_favorites
   def index
-    @buyer_favorites = BuyerFavorite.all
+    @buyer_favorites = BuyerFavorite.page(params[:page]).per(10)
   end
 
   # GET /buyer_favorites/1

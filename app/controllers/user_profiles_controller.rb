@@ -3,7 +3,7 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles
   def index
-    @user_profiles = UserProfile.all
+    @user_profiles = UserProfile.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@user_profiles.where.not(:home_location_latitude => nil)) do |user_profile, marker|
       marker.lat user_profile.home_location_latitude
       marker.lng user_profile.home_location_longitude

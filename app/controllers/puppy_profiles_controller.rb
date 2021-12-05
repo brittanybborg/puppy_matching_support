@@ -3,7 +3,7 @@ class PuppyProfilesController < ApplicationController
 
   # GET /puppy_profiles
   def index
-    @puppy_profiles = PuppyProfile.all
+    @puppy_profiles = PuppyProfile.page(params[:page]).per(10)
   end
 
   # GET /puppy_profiles/1

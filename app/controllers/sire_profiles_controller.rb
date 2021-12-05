@@ -3,7 +3,7 @@ class SireProfilesController < ApplicationController
 
   # GET /sire_profiles
   def index
-    @sire_profiles = SireProfile.all
+    @sire_profiles = SireProfile.page(params[:page]).per(10)
   end
 
   # GET /sire_profiles/1

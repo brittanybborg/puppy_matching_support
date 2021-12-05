@@ -5,7 +5,7 @@ class BreederReviewsController < ApplicationController
 
   # GET /breeder_reviews
   def index
-    @breeder_reviews = BreederReview.all
+    @breeder_reviews = BreederReview.page(params[:page]).per(10)
   end
 
   # GET /breeder_reviews/1

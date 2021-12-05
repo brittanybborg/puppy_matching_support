@@ -3,7 +3,7 @@ class LittersController < ApplicationController
 
   # GET /litters
   def index
-    @litters = Litter.all
+    @litters = Litter.page(params[:page]).per(10)
   end
 
   # GET /litters/1

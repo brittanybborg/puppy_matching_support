@@ -3,7 +3,7 @@ class BitchProfilesController < ApplicationController
 
   # GET /bitch_profiles
   def index
-    @bitch_profiles = BitchProfile.all
+    @bitch_profiles = BitchProfile.page(params[:page]).per(10)
   end
 
   # GET /bitch_profiles/1
