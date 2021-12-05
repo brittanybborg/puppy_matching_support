@@ -6,6 +6,10 @@ class SireProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :dog_profiles,
+             :through => :litters,
+             :source => :dog_profiles
+
   # Validations
 
   # Scopes

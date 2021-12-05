@@ -12,6 +12,8 @@ RSpec.describe PuppyProfile, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:sire) }
+
     it { should have_one(:bitch) }
 
     end

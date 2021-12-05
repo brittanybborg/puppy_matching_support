@@ -12,6 +12,10 @@ class PuppyProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :sire,
+             :through => :litter,
+             :source => :sire
+
   has_one    :bitch,
              :through => :litter,
              :source => :bitch
