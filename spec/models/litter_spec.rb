@@ -4,6 +4,8 @@ RSpec.describe Litter, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:dog_profiles) }
+
     end
 
     describe "InDirect Associations" do

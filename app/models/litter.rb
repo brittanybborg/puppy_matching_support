@@ -1,6 +1,10 @@
 class Litter < ApplicationRecord
   # Direct associations
 
+  has_many   :dog_profiles,
+             :class_name => "PuppyProfile",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

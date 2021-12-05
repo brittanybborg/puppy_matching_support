@@ -3,6 +3,9 @@ class PuppyProfile < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :litter,
+             :counter_cache => :dog_profiles_count
+
   has_many   :buyer_favorites,
              :foreign_key => "puppy_id",
              :dependent => :destroy

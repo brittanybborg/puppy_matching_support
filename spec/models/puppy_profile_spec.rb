@@ -4,6 +4,8 @@ RSpec.describe PuppyProfile, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:litter) }
+
     it { should have_many(:buyer_favorites) }
 
     end
