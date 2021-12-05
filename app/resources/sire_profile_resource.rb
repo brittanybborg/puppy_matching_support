@@ -10,6 +10,9 @@ class SireProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :litters,
+             foreign_key: :sire_id
+
   # Indirect associations
 
 end
