@@ -12,6 +12,8 @@ RSpec.describe UserProfile, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:breeder_true) }
+
     it { should validate_presence_of(:cat_present) }
 
     it { should validate_presence_of(:children_present) }

@@ -7,6 +7,8 @@ class UserProfile < ApplicationRecord
 
   # Validations
 
+  validates :breeder_true, :presence => true
+
   validates :cat_present, :presence => true
 
   validates :children_present, :presence => true
