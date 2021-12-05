@@ -12,7 +12,11 @@
 
       <dt>Litter</dt>
       <!-- Display litter_id start -->
-      <dd><%= puppy_profile.litter_id %></dd>
+      <dd>
+        <% if @puppy_profile.litter.present? %>
+          <%= link_to puppy_profile.litter, puppy_profile.litter %>
+        <% end %>
+      </dd>
       <!-- Display litter_id end -->
 
       <dt>Alpha true</dt>

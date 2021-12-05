@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= buyer_favorite.user_id %></dd>
+      <dd>
+        <% if @buyer_favorite.user.present? %>
+          <%= link_to buyer_favorite.user, buyer_favorite.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Puppy</dt>
       <!-- Display puppy_id start -->
-      <dd><%= buyer_favorite.puppy_id %></dd>
+      <dd>
+        <% if @buyer_favorite.puppy.present? %>
+          <%= link_to buyer_favorite.puppy, buyer_favorite.puppy %>
+        <% end %>
+      </dd>
       <!-- Display puppy_id end -->
 
     </dl>

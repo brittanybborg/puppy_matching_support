@@ -12,12 +12,20 @@
 
       <dt>Sire</dt>
       <!-- Display sire_id start -->
-      <dd><%= litter.sire_id %></dd>
+      <dd>
+        <% if @litter.sire.present? %>
+          <%= link_to litter.sire, litter.sire %>
+        <% end %>
+      </dd>
       <!-- Display sire_id end -->
 
       <dt>Bitch</dt>
       <!-- Display bitch_id start -->
-      <dd><%= litter.bitch_id %></dd>
+      <dd>
+        <% if @litter.bitch.present? %>
+          <%= link_to litter.bitch, litter.bitch %>
+        <% end %>
+      </dd>
       <!-- Display bitch_id end -->
 
       <dt>Puppy count</dt>

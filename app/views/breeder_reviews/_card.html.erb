@@ -12,7 +12,11 @@
 
       <dt>Buyer</dt>
       <!-- Display buyer_id start -->
-      <dd><%= breeder_review.buyer_id %></dd>
+      <dd>
+        <% if @breeder_review.user.present? %>
+          <%= link_to breeder_review.user, breeder_review.user %>
+        <% end %>
+      </dd>
       <!-- Display buyer_id end -->
 
     </dl>
