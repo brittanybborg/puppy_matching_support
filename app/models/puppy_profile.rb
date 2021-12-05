@@ -3,6 +3,10 @@ class PuppyProfile < ApplicationRecord
 
   # Direct associations
 
+  has_many   :buyer_favorites,
+             :foreign_key => "puppy_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
