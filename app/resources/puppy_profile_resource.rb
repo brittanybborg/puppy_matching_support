@@ -19,4 +19,12 @@ class PuppyProfileResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :bitch,
+             resource: BitchProfileResource
+
+  filter :bitch_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:bitch).where(:litters => {:bitch_id => value})
+    end
+  end
 end
