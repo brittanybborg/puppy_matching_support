@@ -28,30 +28,9 @@
   </div>
   <!-- Label and input for description end -->
   <!-- Label and input for buyer_id start -->
-  <div class="form-group">
-    <% buyer_class = "form-control" %>
-    <% buyer_was_invalid = breeder_review.errors.include?(:buyer) %>
-
-    <% if was_validated %>
-      <% if buyer_was_invalid %>
-        <% buyer_class << " is-invalid" %>
-      <% else %>
-        <% buyer_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :buyer_id %>
-    <!-- Input for buyer_id start -->
-    <%= f.collection_select :buyer_id, UserProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for buyer_id end -->
-    <% if buyer_was_invalid %>
-      <% breeder_review.errors.full_messages_for(:buyer).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "buyer_id" start -->
+  <%= f.hidden_field :buyer_id, value: current_user_profile.id %>
+  <!-- Input for "buyer_id" end -->
   <!-- Label and input for buyer_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
