@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Sire Profile #<%= sire_profile.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= sire_profile.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= sire_profile.photo %></dd>
+      <!-- Display photo end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= sire_profile.description %></dd>
+      <!-- Display description end -->
+
+      <dt>Previous litters</dt>
+      <!-- Display previous_litters start -->
+      <dd><%= sire_profile.previous_litters %></dd>
+      <!-- Display previous_litters end -->
+
+      <dt>Age</dt>
+      <!-- Display age start -->
+      <dd><%= sire_profile.age %></dd>
+      <!-- Display age end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back sire_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link sire_profile start -->
+      <div class="col">
+        <%= link_to edit_sire_profile_url(sire_profile), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link sire_profile end -->
+
+      <!-- Delete link sire_profile start -->
+      <div class="col">
+        <%= link_to sire_profile, method: :delete, data: { confirm: "Do you really want to delete this sire_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link sire_profile end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(sire_profile.updated_at) %> ago
+  </div>
+</div>
