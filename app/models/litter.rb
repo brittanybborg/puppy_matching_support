@@ -5,6 +5,8 @@ class Litter < ApplicationRecord
 
   # Validations
 
+  validates :puppy_count, :presence => true
+
   # Scopes
 
   def to_s
