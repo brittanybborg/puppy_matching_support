@@ -7,6 +7,8 @@ class UserProfile < ApplicationRecord
 
   # Validations
 
+  validates :home_activity_level, :presence => true
+
   validates :home_location, :uniqueness => true
 
   validates :home_location, :presence => true
