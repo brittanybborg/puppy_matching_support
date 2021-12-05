@@ -1,10 +1,11 @@
 class SireProfilesController < ApplicationController
-  before_action :set_sire_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_sire_profile, only: %i[show edit update destroy]
 
   # GET /sire_profiles
   def index
     @q = SireProfile.ransack(params[:q])
-    @sire_profiles = @q.result(:distinct => true).includes(:litters, :dog_profiles).page(params[:page]).per(10)
+    @sire_profiles = @q.result(distinct: true).includes(:litters,
+                                                        :dog_profiles).page(params[:page]).per(10)
   end
 
   # GET /sire_profiles/1
@@ -18,15 +19,15 @@ class SireProfilesController < ApplicationController
   end
 
   # GET /sire_profiles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sire_profiles
   def create
     @sire_profile = SireProfile.new(sire_profile_params)
 
     if @sire_profile.save
-      redirect_to @sire_profile, notice: 'Sire profile was successfully created.'
+      redirect_to @sire_profile,
+                  notice: "Sire profile was successfully created."
     else
       render :new
     end
@@ -35,7 +36,8 @@ class SireProfilesController < ApplicationController
   # PATCH/PUT /sire_profiles/1
   def update
     if @sire_profile.update(sire_profile_params)
-      redirect_to @sire_profile, notice: 'Sire profile was successfully updated.'
+      redirect_to @sire_profile,
+                  notice: "Sire profile was successfully updated."
     else
       render :edit
     end
@@ -44,17 +46,20 @@ class SireProfilesController < ApplicationController
   # DELETE /sire_profiles/1
   def destroy
     @sire_profile.destroy
-    redirect_to sire_profiles_url, notice: 'Sire profile was successfully destroyed.'
+    redirect_to sire_profiles_url,
+                notice: "Sire profile was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sire_profile
-      @sire_profile = SireProfile.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def sire_profile_params
-      params.require(:sire_profile).permit(:name, :photo, :description, :previous_litters, :age)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sire_profile
+    @sire_profile = SireProfile.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def sire_profile_params
+    params.require(:sire_profile).permit(:name, :photo, :description,
+                                         :previous_litters, :age)
+  end
 end

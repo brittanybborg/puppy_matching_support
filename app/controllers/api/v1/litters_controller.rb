@@ -13,7 +13,7 @@ class Api::V1::LittersController < Api::V1::GraphitiController
     litter = LitterResource.build(params)
 
     if litter.save
-      render jsonapi: litter, status: 201
+      render jsonapi: litter, status: :created
     else
       render jsonapi_errors: litter
     end
@@ -33,7 +33,7 @@ class Api::V1::LittersController < Api::V1::GraphitiController
     litter = LitterResource.find(params)
 
     if litter.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: litter
     end

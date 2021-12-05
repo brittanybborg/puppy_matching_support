@@ -13,7 +13,7 @@ class Api::V1::BitchProfilesController < Api::V1::GraphitiController
     bitch_profile = BitchProfileResource.build(params)
 
     if bitch_profile.save
-      render jsonapi: bitch_profile, status: 201
+      render jsonapi: bitch_profile, status: :created
     else
       render jsonapi_errors: bitch_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::BitchProfilesController < Api::V1::GraphitiController
     bitch_profile = BitchProfileResource.find(params)
 
     if bitch_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: bitch_profile
     end

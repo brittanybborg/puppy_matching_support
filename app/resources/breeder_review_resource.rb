@@ -12,5 +12,4 @@ class BreederReviewResource < ApplicationResource
              foreign_key: :buyer_id
 
   # Indirect associations
-
 end

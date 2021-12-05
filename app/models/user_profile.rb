@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class UserProfile < ApplicationRecord
   before_validation :geocode_home_location
 
   def geocode_home_location
-    if self.home_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.home_location)}"
+    if home_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(home_location)}"
 
       raw_data = open(url).read
 
@@ -19,39 +19,38 @@ class UserProfile < ApplicationRecord
       end
     end
   end
-  enum home_activity_level: {"low"=>0, "medium"=>1, "high"=>2} 
+  enum home_activity_level: { "low" => 0, "medium" => 1, "high" => 2 }
 
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :buyer_favorites,
-             :foreign_key => "user_id",
-             :dependent => :destroy
+             foreign_key: "user_id",
+             dependent: :destroy
 
   has_many   :buyer_reviews,
-             :class_name => "BreederReview",
-             :foreign_key => "buyer_id"
+             class_name: "BreederReview",
+             foreign_key: "buyer_id"
 
   # Indirect associations
 
   # Validations
 
-  validates :breeder_true, :presence => true
+  validates :breeder_true, presence: true
 
-  validates :cat_present, :presence => true
+  validates :cat_present, presence: true
 
-  validates :children_present, :presence => true
+  validates :children_present, presence: true
 
-  validates :home_activity_level, :presence => true
+  validates :home_activity_level, presence: true
 
-  validates :home_location, :uniqueness => true
+  validates :home_location, uniqueness: true
 
-  validates :home_location, :presence => true
+  validates :home_location, presence: true
 
-  validates :username, :uniqueness => true
+  validates :username, uniqueness: true
 
-  validates :username, :presence => true
+  validates :username, presence: true
 
   # Scopes
 

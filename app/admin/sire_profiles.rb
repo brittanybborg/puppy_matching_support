@@ -1,6 +1,5 @@
 ActiveAdmin.register SireProfile do
-
- permit_params :name, :photo, :description, :previous_litters, :age
+  permit_params :name, :photo, :description, :previous_litters, :age
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register SireProfile do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

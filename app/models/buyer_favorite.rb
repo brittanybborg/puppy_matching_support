@@ -2,12 +2,12 @@ class BuyerFavorite < ApplicationRecord
   # Direct associations
 
   belongs_to :puppy,
-             :class_name => "PuppyProfile",
-             :counter_cache => true
+             class_name: "PuppyProfile",
+             counter_cache: true
 
   belongs_to :user,
-             :class_name => "UserProfile",
-             :counter_cache => true
+             class_name: "UserProfile",
+             counter_cache: true
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class BuyerFavorite < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

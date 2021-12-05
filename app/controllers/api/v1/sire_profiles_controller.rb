@@ -13,7 +13,7 @@ class Api::V1::SireProfilesController < Api::V1::GraphitiController
     sire_profile = SireProfileResource.build(params)
 
     if sire_profile.save
-      render jsonapi: sire_profile, status: 201
+      render jsonapi: sire_profile, status: :created
     else
       render jsonapi_errors: sire_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::SireProfilesController < Api::V1::GraphitiController
     sire_profile = SireProfileResource.find(params)
 
     if sire_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: sire_profile
     end

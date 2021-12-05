@@ -13,7 +13,7 @@ class Api::V1::BuyerFavoritesController < Api::V1::GraphitiController
     buyer_favorite = BuyerFavoriteResource.build(params)
 
     if buyer_favorite.save
-      render jsonapi: buyer_favorite, status: 201
+      render jsonapi: buyer_favorite, status: :created
     else
       render jsonapi_errors: buyer_favorite
     end
@@ -33,7 +33,7 @@ class Api::V1::BuyerFavoritesController < Api::V1::GraphitiController
     buyer_favorite = BuyerFavoriteResource.find(params)
 
     if buyer_favorite.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: buyer_favorite
     end

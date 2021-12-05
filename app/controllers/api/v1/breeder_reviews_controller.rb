@@ -13,7 +13,7 @@ class Api::V1::BreederReviewsController < Api::V1::GraphitiController
     breeder_review = BreederReviewResource.build(params)
 
     if breeder_review.save
-      render jsonapi: breeder_review, status: 201
+      render jsonapi: breeder_review, status: :created
     else
       render jsonapi_errors: breeder_review
     end
@@ -33,7 +33,7 @@ class Api::V1::BreederReviewsController < Api::V1::GraphitiController
     breeder_review = BreederReviewResource.find(params)
 
     if breeder_review.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: breeder_review
     end

@@ -21,5 +21,4 @@ class LitterResource < ApplicationResource
              resource: PuppyProfileResource
 
   # Indirect associations
-
 end

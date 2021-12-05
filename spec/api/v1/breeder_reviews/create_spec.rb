@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "breeder_reviews#create", type: :request do
   subject(:make_request) do
     jsonapi_post "/api/v1/breeder_reviews", payload
   end
 
-  describe 'basic create' do
+  describe "basic create" do
     let(:params) do
       {
         # ... your attrs here
@@ -14,18 +14,18 @@ RSpec.describe "breeder_reviews#create", type: :request do
     let(:payload) do
       {
         data: {
-          type: 'breeder_reviews',
-          attributes: params
-        }
+          type: "breeder_reviews",
+          attributes: params,
+        },
       }
     end
 
-    it 'works' do
+    it "works" do
       expect(BreederReviewResource).to receive(:build).and_call_original
-      expect {
+      expect do
         make_request
         expect(response.status).to eq(201), response.body
-      }.to change { BreederReview.count }.by(1)
+      end.to change { BreederReview.count }.by(1)
     end
   end
 end

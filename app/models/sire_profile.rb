@@ -4,13 +4,13 @@ class SireProfile < ApplicationRecord
   # Direct associations
 
   has_many   :litters,
-             :foreign_key => "sire_id"
+             foreign_key: "sire_id"
 
   # Indirect associations
 
   has_many   :dog_profiles,
-             :through => :litters,
-             :source => :dog_profiles
+             through: :litters,
+             source: :dog_profiles
 
   # Validations
 
@@ -19,5 +19,4 @@ class SireProfile < ApplicationRecord
   def to_s
     name
   end
-
 end

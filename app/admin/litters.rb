@@ -1,6 +1,6 @@
 ActiveAdmin.register Litter do
-
- permit_params :litter_name, :sire_id, :bitch_id, :puppy_count, :due_date, :puppy_release_date
+  permit_params :litter_name, :sire_id, :bitch_id, :puppy_count, :due_date,
+                :puppy_release_date
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Litter do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

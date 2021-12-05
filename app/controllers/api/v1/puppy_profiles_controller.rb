@@ -13,7 +13,7 @@ class Api::V1::PuppyProfilesController < Api::V1::GraphitiController
     puppy_profile = PuppyProfileResource.build(params)
 
     if puppy_profile.save
-      render jsonapi: puppy_profile, status: 201
+      render jsonapi: puppy_profile, status: :created
     else
       render jsonapi_errors: puppy_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::PuppyProfilesController < Api::V1::GraphitiController
     puppy_profile = PuppyProfileResource.find(params)
 
     if puppy_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: puppy_profile
     end

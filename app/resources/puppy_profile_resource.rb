@@ -6,7 +6,8 @@ class PuppyProfileResource < ApplicationResource
   attribute :litter_id, :integer
   attribute :alpha_true, :boolean
   attribute :runt_true, :boolean
-  attribute :activity_level, :string_enum, allow: PuppyProfile.activity_levels.keys
+  attribute :activity_level, :string_enum,
+            allow: PuppyProfile.activity_levels.keys
   attribute :photo, :string
   attribute :description, :string
 
@@ -26,13 +27,13 @@ class PuppyProfileResource < ApplicationResource
 
   filter :bitch_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:bitch).where(:litters => {:bitch_id => value})
+      scope.eager_load(:bitch).where(litters: { bitch_id: value })
     end
   end
 
   filter :sire_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:sire).where(:litters => {:sire_id => value})
+      scope.eager_load(:sire).where(litters: { sire_id: value })
     end
   end
 end

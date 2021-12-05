@@ -4,13 +4,13 @@ class BitchProfile < ApplicationRecord
   # Direct associations
 
   has_many   :litters,
-             :foreign_key => "bitch_id"
+             foreign_key: "bitch_id"
 
   # Indirect associations
 
   has_many   :dog_profiles,
-             :through => :litters,
-             :source => :dog_profiles
+             through: :litters,
+             source: :dog_profiles
 
   # Validations
 
@@ -19,5 +19,4 @@ class BitchProfile < ApplicationRecord
   def to_s
     name
   end
-
 end

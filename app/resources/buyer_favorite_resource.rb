@@ -14,5 +14,4 @@ class BuyerFavoriteResource < ApplicationResource
              resource: UserProfileResource
 
   # Indirect associations
-
 end

@@ -22,5 +22,4 @@ class SireProfileResource < ApplicationResource
       end
     end
   end
-
 end

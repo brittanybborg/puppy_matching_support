@@ -22,5 +22,4 @@ class BitchProfileResource < ApplicationResource
       end
     end
   end
-
 end
