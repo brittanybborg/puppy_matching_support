@@ -7,6 +7,9 @@ class BuyerFavoriteResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :puppy,
+             resource: PuppyProfileResource
+
   belongs_to :user,
              resource: UserProfileResource
 

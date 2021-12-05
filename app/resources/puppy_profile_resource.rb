@@ -12,6 +12,9 @@ class PuppyProfileResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :buyer_favorites,
+             foreign_key: :puppy_id
+
   # Indirect associations
 
 end
