@@ -12,6 +12,8 @@ RSpec.describe Litter, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:litter_name) }
+
     it { should validate_presence_of(:puppy_count) }
 
     end
