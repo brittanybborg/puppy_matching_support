@@ -3,6 +3,10 @@ class UserProfile < ApplicationRecord
 
   # Direct associations
 
+  has_many   :buyer_reviews,
+             :class_name => "BreederReview",
+             :foreign_key => "buyer_id"
+
   # Indirect associations
 
   # Validations
