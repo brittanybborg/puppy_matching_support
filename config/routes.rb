@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bitch_profiles
   resources :sire_profiles
   resources :buyer_favorites
   resources :breeder_reviews
