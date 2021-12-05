@@ -12,6 +12,8 @@ RSpec.describe UserProfile, type: :model do
 
     describe "Validations" do
 
+    it { should validate_uniqueness_of(:home_location) }
+
     it { should validate_presence_of(:home_location) }
 
     it { should validate_uniqueness_of(:username) }
