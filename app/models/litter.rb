@@ -1,6 +1,10 @@
 class Litter < ApplicationRecord
   # Direct associations
 
+  belongs_to :bitch,
+             :class_name => "BitchProfile",
+             :counter_cache => true
+
   belongs_to :sire,
              :class_name => "SireProfile",
              :counter_cache => true
