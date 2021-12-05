@@ -4,6 +4,11 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles
   def index
     @user_profiles = UserProfile.all
+    @location_hash = Gmaps4rails.build_markers(@user_profiles.where.not(:home_location_latitude => nil)) do |user_profile, marker|
+      marker.lat user_profile.home_location_latitude
+      marker.lng user_profile.home_location_longitude
+      marker.infowindow "<h5><a href='/user_profiles/#{user_profile.id}'>#{user_profile.email}</a></h5><small>#{user_profile.home_location_formatted_address}</small>"
+    end
   end
 
   # GET /user_profiles/1

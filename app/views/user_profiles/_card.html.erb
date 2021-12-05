@@ -32,7 +32,11 @@
 
       <dt>Home location</dt>
       <!-- Display home_location start -->
-      <dd><%= user_profile.home_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "user_profiles/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display home_location end -->
 
     </dl>
